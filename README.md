@@ -19,12 +19,28 @@ Listening on 8080
 
 ## Play Family Feud
 
-* Open two browser windows at http://localhost:8080/
-* Click **Be the host** to assign that window to become the game **host controller**. All other open instances will become the **audiance window** window. 
-* As the **host** you can:
-   * click to reveal answers
-   * assign points
-   * go to new questions
+### Creating a New Game (Host)
+
+1. Open a browser at http://localhost:8080/
+2. Click **Create New Game** 
+3. You'll receive a unique 6-character **Game Code** (e.g., ABC123)
+4. Share this code with your audience/players
+5. Click **Start Game** to begin hosting
+6. As the **host** you can:
+   * Click to reveal answers
+   * Assign points to teams
+   * Go to new questions
+   * Mark wrong answers
+
+### Joining a Game (Audience/Players)
+
+1. Open a browser at http://localhost:8080/
+2. Enter the **Game Code** provided by the host
+3. Click **Join Game**
+4. You'll automatically enter the game board
+5. Watch the host control the game in real-time
+
+**Note:** Multiple players can join the same game using the same code. All participants will see synchronized game updates.
 
 ### Default instance:
 ![Default instance](public/img/Default.jpg)
