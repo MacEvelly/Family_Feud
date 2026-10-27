@@ -48,6 +48,10 @@ var app = {
                 </div>`),
     
     // Utility functions
+    playSound: (url) => {
+        var audio = new Audio(url);
+        audio.play();
+    },
     shuffle: (array) => {
         var currentIndex = array.length,
             temporaryValue, randomIndex;
@@ -172,6 +176,7 @@ var app = {
             var: parseInt(team.html())
         };
         var teamScoreUpdated = (teamScore.var + currentScore.var);
+        app.playSound("https://www.myinstants.com/media/sounds/family-feud-win-sound-effect.mp3")
         TweenMax.to(teamScore, 1, {
             var: teamScoreUpdated,
             onUpdate: function () {
@@ -190,6 +195,7 @@ var app = {
     },
     changeQuestion: () => {
         app.currentQ++;
+        app.playSound("https://www.myinstants.com/media/sounds/family-feud-ding.mp3")
         app.makeQuestion(app.currentQ);
     },
     makeHost: () => {
@@ -212,14 +218,16 @@ var app = {
         });
         flipped = !flipped;
         $(card).data("flipped", flipped);
+        app.playSound("https://www.myinstants.com/media/sounds/family-feud-correct-answer.mp3")
         app.getBoardScore()
     },
-    wrongAnswer:()=>{
+    wrongAnswer: () => {
         app.wrong++
         console.log("wrong: "+ app.wrong )
         var wrong = app.board.find(".wrongBoard")
         $(wrong).find("img:nth-child("+app.wrong+")").show()
         $(wrong).show()
+        app.playSound("https://www.myinstants.com/media/sounds/family-feud-wrong-answer-buzzer.mp3")
         setTimeout(() => { 
             $(wrong).hide(); 
         }, 1000); 
